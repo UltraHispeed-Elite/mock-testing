@@ -1,12 +1,16 @@
 var game_map;
 var starting_point;
+var current_point;
 
 function mapSetup() {
     game_map = createMap(9, 9, 16);
     console.log(game_map);
 
     locateStartingMap();
-    console.log(starting_point)
+
+    current_point = starting_point;
+    checkSurroundingRooms();
+    console.log(starting_point);
 }
 
 function mapDraw() {
@@ -22,5 +26,25 @@ function locateStartingMap() {
                 continue;
             }
         }
+    }
+}
+
+function checkSurroundingRooms() {
+    let points = current_point;
+
+    if((points[0]-1) > 0) {
+        new Sprite(300, 100, 25, 25);
+    }
+
+    if((points[1]-1) > 0) {
+        new Sprite(100, 300, 25, 25);
+    }
+
+    if((points[0]+1) > 0) {
+        new Sprite(300, 500, 25, 25);
+    }
+
+    if((points[1]+1) > 0) {
+        new Sprite(500, 300, 25, 25);
     }
 }
