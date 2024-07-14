@@ -32,19 +32,35 @@ function locateStartingMap() {
 function checkSurroundingRooms() {
     let points = current_point;
 
-    if((points[0]-1) > 0) {
-        new Sprite(300, 100, 25, 25);
+    try{
+        if((game_map[points[0]-1][points[1]]) > 0) {
+            new Sprite(300, 100, 25, 25);
+        }
+    }catch(err) {
+        console.log("no room");
     }
 
-    if((points[1]-1) > 0) {
-        new Sprite(100, 300, 25, 25);
+    try{
+        if((game_map[points[0]][points[1]-1]) > 0) {
+            new Sprite(100, 300, 25, 25);
+        }
+    }catch(err) {
+        console.log("no room");
     }
 
-    if((points[0]+1) > 0) {
-        new Sprite(300, 500, 25, 25);
+    try{
+        if((game_map[points[0]+1][points[1]]) > 0) {
+            new Sprite(300, 500, 25, 25);
+        }
+    }catch(err) {
+        console.log("no room");
     }
 
-    if((points[1]+1) > 0) {
-        new Sprite(500, 300, 25, 25);
+    try{
+        if((game_map[points[0]][points[1]+1]) > 0) {
+            new Sprite(500, 300, 25, 25);
+        }
+    }catch(err) {
+        console.log("no room");
     }
 }
